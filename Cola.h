@@ -9,6 +9,7 @@ public:
 	void Encolar(int valor); //Recibe un NumMadera para ingresar a la cola.
 	NumMadera Desencolar(); //Sacar carta de la pila.
 	NumMadera ObtenerPrimero(); //Obtener carta en la cima sin sacarla.
+	bool ColaVacia();
 public:
 	Cola();
 	~Cola();

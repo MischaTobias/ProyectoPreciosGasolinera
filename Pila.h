@@ -9,6 +9,7 @@ public:
 	NumMadera Desapilar(); //Saca el NumMadera que se encuentra en el head de la pila.
 	NumMadera ObtenerCima(); //Obtener el número del head sin sacarlo de la pila.
 	void Ordenar();
+	bool PilaVacia();
 public:
 	Pila();//Constructores
 	~Pila();

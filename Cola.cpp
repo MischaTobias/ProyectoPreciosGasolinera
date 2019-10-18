@@ -8,6 +8,10 @@ Cola::~Cola() {
 
 }
 
+bool Cola::ColaVacia() {
+	return first == nullptr;
+}
+
 void Cola::Encolar(int valor) {
 	NumMadera* numMaderaNuevo = new NumMadera();
 	numMaderaNuevo->valor = valor; //Meter el nuevo número dentro de un nodo NumMadera.

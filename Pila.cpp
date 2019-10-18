@@ -8,6 +8,10 @@ Pila::~Pila() {
 
 }
 
+bool Pila::PilaVacia(){
+	return head == nullptr;
+}
+
 void Pila::Apilar(int valor) {
 	NumMadera* numMaderaNuevo = new NumMadera();
 	numMaderaNuevo->valor = valor; //Meter el nuevo número dentro de un nodo NumMadera.
