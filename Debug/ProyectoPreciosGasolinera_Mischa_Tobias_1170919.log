@@ -1,4 +1,3 @@
 ﻿  MyForm.cpp
-C:\Users\misch\source\repos\ProyectoPreciosGasolinera_Mischa_Tobias_1170919\MyForm.h(334): warning C4715: 'ProyectoPreciosGasolineraMischaTobias1170919::MyForm::ObtenerNumColaYPila': no todas las rutas de acceso de control devuelven un valor
   Cola.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
   ProyectoPreciosGasolinera_Mischa_Tobias_1170919.vcxproj -> C:\Users\misch\source\repos\ProyectoPreciosGasolinera_Mischa_Tobias_1170919\Debug\ProyectoPreciosGasolinera_Mischa_Tobias_1170919.exe

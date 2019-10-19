@@ -2,6 +2,8 @@
 
 Cola::Cola() {
 	nElementos = 0;
+	first = nullptr;
+	last = nullptr;
 }
 
 Cola::~Cola() {
@@ -13,7 +15,7 @@ bool Cola::ColaVacia() {
 }
 
 void Cola::Encolar(int valor) {
-	NumMadera* numMaderaNuevo = new NumMadera();
+	NumMadera *numMaderaNuevo = new NumMadera();
 	numMaderaNuevo->valor = valor; //Meter el nuevo número dentro de un nodo NumMadera.
 	if (last == nullptr && first == nullptr)
 	{
@@ -35,6 +37,10 @@ NumMadera Cola::Desencolar() {
 	}
 	else
 	{
+		if (first == last)
+		{
+			last = nullptr;
+		}
 		NumMadera* valor = first;
 		first = first->siguienteNum;//Si la cola no está vacía, se convierte el siguiente del first en el nuevo first.
 		nElementos--;//Al desencolar se reduce el número de elementos en la cola.

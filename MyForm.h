@@ -2,6 +2,7 @@
 #include "Pila.h"
 #include "Cola.h"
 #include "NumMadera.h"
+#include "ListaDobleEnlazada.h"
 
 
 namespace ProyectoPreciosGasolineraMischaTobias1170919 {
@@ -49,12 +50,18 @@ namespace ProyectoPreciosGasolineraMischaTobias1170919 {
 	private: System::Windows::Forms::Button^ btnOrdenar;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ lblPrecio;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::RichTextBox^ rTBListaDobleEnlazada;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Button^ btnDevolverNums;
 
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -72,6 +79,12 @@ namespace ProyectoPreciosGasolineraMischaTobias1170919 {
 			this->btnOrdenar = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->lblPrecio = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->rTBListaDobleEnlazada = (gcnew System::Windows::Forms::RichTextBox());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->btnDevolverNums = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// txtPrecioGas
@@ -94,7 +107,7 @@ namespace ProyectoPreciosGasolineraMischaTobias1170919 {
 			// 
 			// rTBPila
 			// 
-			this->rTBPila->Location = System::Drawing::Point(281, 25);
+			this->rTBPila->Location = System::Drawing::Point(281, 49);
 			this->rTBPila->Name = L"rTBPila";
 			this->rTBPila->Size = System::Drawing::Size(72, 255);
 			this->rTBPila->TabIndex = 2;
@@ -102,7 +115,7 @@ namespace ProyectoPreciosGasolineraMischaTobias1170919 {
 			// 
 			// rTBCola
 			// 
-			this->rTBCola->Location = System::Drawing::Point(374, 25);
+			this->rTBCola->Location = System::Drawing::Point(374, 49);
 			this->rTBCola->Name = L"rTBCola";
 			this->rTBCola->Size = System::Drawing::Size(72, 255);
 			this->rTBCola->TabIndex = 3;
@@ -120,9 +133,9 @@ namespace ProyectoPreciosGasolineraMischaTobias1170919 {
 			// 
 			// btnOrdenar
 			// 
-			this->btnOrdenar->Location = System::Drawing::Point(55, 188);
+			this->btnOrdenar->Location = System::Drawing::Point(281, 330);
 			this->btnOrdenar->Name = L"btnOrdenar";
-			this->btnOrdenar->Size = System::Drawing::Size(94, 54);
+			this->btnOrdenar->Size = System::Drawing::Size(165, 38);
 			this->btnOrdenar->TabIndex = 5;
 			this->btnOrdenar->Text = L"Ordenar Pila y Cola";
 			this->btnOrdenar->UseVisualStyleBackColor = true;
@@ -137,7 +150,7 @@ namespace ProyectoPreciosGasolineraMischaTobias1170919 {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(214, 13);
 			this->label2->TabIndex = 6;
-			this->label2->Text = L"->Debe ser un número de 4 dígitos o menos";
+			this->label2->Text = L"> Debe ser un número de 4 dígitos o menos";
 			// 
 			// lblPrecio
 			// 
@@ -152,12 +165,80 @@ namespace ProyectoPreciosGasolineraMischaTobias1170919 {
 			this->lblPrecio->Text = L"----";
 			this->lblPrecio->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(300, 25);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(28, 13);
+			this->label3->TabIndex = 8;
+			this->label3->Text = L"Pila";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->Location = System::Drawing::Point(395, 25);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(32, 13);
+			this->label4->TabIndex = 9;
+			this->label4->Text = L"Cola";
+			// 
+			// rTBListaDobleEnlazada
+			// 
+			this->rTBListaDobleEnlazada->Location = System::Drawing::Point(478, 206);
+			this->rTBListaDobleEnlazada->Name = L"rTBListaDobleEnlazada";
+			this->rTBListaDobleEnlazada->Size = System::Drawing::Size(220, 98);
+			this->rTBListaDobleEnlazada->TabIndex = 10;
+			this->rTBListaDobleEnlazada->Text = L"";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->Location = System::Drawing::Point(475, 167);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(200, 13);
+			this->label5->TabIndex = 11;
+			this->label5->Text = L"Precios registrados anteriormente:";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->Location = System::Drawing::Point(475, 188);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(209, 13);
+			this->label6->TabIndex = 12;
+			this->label6->Text = L"> Puedes colocar 4 números como máximo";
+			// 
+			// btnDevolverNums
+			// 
+			this->btnDevolverNums->Location = System::Drawing::Point(501, 330);
+			this->btnDevolverNums->Name = L"btnDevolverNums";
+			this->btnDevolverNums->Size = System::Drawing::Size(165, 38);
+			this->btnDevolverNums->TabIndex = 13;
+			this->btnDevolverNums->Text = L"Devolver números a la pila y la cola";
+			this->btnDevolverNums->UseVisualStyleBackColor = true;
+			this->btnDevolverNums->Click += gcnew System::EventHandler(this, &MyForm::btnDevolverNums_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
 			this->ClientSize = System::Drawing::Size(710, 434);
+			this->Controls->Add(this->btnDevolverNums);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->rTBListaDobleEnlazada);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->label3);
 			this->Controls->Add(this->lblPrecio);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->btnOrdenar);
@@ -175,96 +256,99 @@ namespace ProyectoPreciosGasolineraMischaTobias1170919 {
 
 		}
 #pragma endregion
+		ListaDobleEnlazada* listaInicial = new ListaDobleEnlazada();
 		Pila* pilaInicial = new Pila();
 		Pila* pilaAuxiliar = new Pila();
 		Cola* colaInicial = new Cola();
 		Cola* colaAuxiliar = new Cola();
-		
-	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		int nums[10] = {};
-		for (int i = 0; i < 10; i++){
-			pilaInicial->Apilar(i);
-		}
+		int dig1 = -1;
+		int dig2 = -1;
+		int dig3 = -1;
+		int dig4 = -1;
+		int contUsos = 0;
 
-		for (int i = 0; i < 10; i++){
-			colaInicial->Encolar(i);
-		}
-
-		MostrarPilaYCola();
+private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	for (int i = 0; i < 10; i++) {
+		pilaInicial->Apilar(i);
 	}
 
-	private: System::Void MostrarPilaYCola() {
-		String^ t = "";
-		NumMadera *n = new NumMadera();
-		n = pilaInicial->head;
-
-		for (int i = 0; i < pilaInicial->nElementos; i++)
-		{
-			t += (n->valor).ToString() + "\n";
-			n = n->siguienteNum;
-		}
-		rTBPila->Text = t;
-
-		n = colaInicial->first;
-		t = "";
-
-		for (int i = 0; i < colaInicial->nElementos; i++)
-		{
-			t += (n->valor).ToString() + "\n";
-			n = n->siguienteNum;
-		}
-		rTBCola->Text = t;
+	for (int i = 0; i < 10; i++) {
+		colaInicial->Encolar(i);
 	}
-	private: System::Void btnOrdenar_Click(System::Object^ sender, System::EventArgs^ e) {
-		int numsOrden[10];
-		NumMadera *num = pilaInicial->head;
-		bool contNum = true;
-		for (int i = 0; i < pilaInicial->nElementos; i++)
+
+	MostrarPilaYCola();
+}
+private: System::Void MostrarPilaYCola() {
+	String^ t = "";
+	NumMadera *n = new NumMadera();
+	n = pilaInicial->head;
+
+	for (int i = 0; i < pilaInicial->nElementos; i++)
+	{
+		t += (n->valor).ToString() + "\n";
+		n = n->siguienteNum;
+	}
+	rTBPila->Text = t;
+
+	n = colaInicial->first;
+	t = "";
+
+	for (int i = 0; i < colaInicial->nElementos; i++)
+	{
+		t += (n->valor).ToString() + "\n";
+		n = n->siguienteNum;
+	}
+	rTBCola->Text = t;
+}
+private: System::Void btnOrdenar_Click(System::Object^ sender, System::EventArgs^ e) {
+	int numsOrden[10];
+	NumMadera *num = pilaInicial->head;
+	bool contNum = true;
+	for (int i = 0; i < pilaInicial->nElementos; i++)
+	{
+		if (contNum)
 		{
-			if (contNum)
+			if (num->siguienteNum == nullptr)
 			{
-				if (num->siguienteNum == nullptr)
-				{
-					numsOrden[i] = num->valor;
-					contNum = false;
-				}
-				else
-				{
-					numsOrden[i] = num->valor;
-				}
+				numsOrden[i] = num->valor;
+				contNum = false;
 			}
 			else
 			{
-				numsOrden[i] = -1;
+				numsOrden[i] = num->valor;
 			}
 		}
-
-		int pos = 0;
-		int numMen = numsOrden[0];
-		int x = numsOrden[0];
-
-		for (int j = 0; j < 10; j++)
+		else
 		{
-			for (int i = j; i < 10; i++)
-			{
-				if (numsOrden[i] < numMen)
-				{
-					pos = i;
-					numMen = numsOrden[i];
-				}
-			}
-			x = numsOrden[pos];
-			numsOrden[pos] = numsOrden[j];
-			numsOrden[j] = x;
-		}
-
-		if (Ordenado(numsOrden))
-		{
-			MostrarPilaYCola();
+			numsOrden[i] = -1;
 		}
 	}
 
-	private: System::Boolean Ordenado(int vect[]) {
+	int pos = 0;
+	int numMen = numsOrden[0];
+	int x = numsOrden[0];
+
+	for (int j = 0; j < 10; j++)
+	{
+		for (int i = j; i < 10; i++)
+		{
+			if (numsOrden[i] < numMen)
+			{
+				pos = i;
+				numMen = numsOrden[i];
+			}
+		}
+		x = numsOrden[pos];
+		numsOrden[pos] = numsOrden[j];
+		numsOrden[j] = x;
+	}
+
+	if (Ordenado(numsOrden))
+	{
+		MostrarPilaYCola();
+	}
+}
+private: System::Boolean Ordenado(int vect[]) {
 		for (int i = 0; i < 10; i++)
 		{
 			if (i+1 < 10)
@@ -282,22 +366,76 @@ private: System::Void btnMostrarPrecios_Click(System::Object^ sender, System::Ev
 	System::String^ nums = txtPrecioGas->Text;
 	try
 	{
+		NumMadera *digit1 = new NumMadera();
+		NumMadera* digit2 = new NumMadera();
+		NumMadera* digit3 = new NumMadera();
+		NumMadera* digit4 = new NumMadera();
+
 		int numbs = System::Convert::ToInt16(nums);
-		if (numbs < 9999)
+		if (numbs <= 9999 || numbs < 0)
 		{
-			int dig1 = numbs / 1000;
-			int dig2 = (numbs - dig1 * 1000) / 100;
-			int dig3 = (numbs - dig2 * 100 - dig1 * 1000) / 10;
-			int dig4 = numbs - dig3 * 10 - dig2 * 100 - dig1 * 1000;
+			contUsos++;
+			if (contUsos > 4)
+			{
+				goto finish;
+			}
 
-			NumMadera digit1 = ObtenerNumColaYPila(dig1);
-			NumMadera digit2 = ObtenerNumColaYPila(dig2);
-			NumMadera digit3 = ObtenerNumColaYPila(dig3);
-			NumMadera digit4 = ObtenerNumColaYPila(dig4);
+			if (!(dig1 == numbs / 1000))
+			{
+				dig1 = numbs / 1000;
+				digit1 = &ObtenerNumColaYPila(dig1);
+			}
+			else
+			{
+				//Extraer de la listadoble
+			}
 
-			nums = ((&digit1)->valor).ToString() + ((&digit2)->valor).ToString() + "." + ((&digit3)->valor).ToString() + ((&digit4)->valor).ToString();
+			if (!(dig2 == (numbs - dig1 * 1000) / 100))
+			{
+				dig2 = (numbs - dig1 * 1000) / 100;
+				digit2 = &ObtenerNumColaYPila(dig2);
+			}
+			else
+			{
+				//Extraer de la listadoble
+			}
+
+			if (!(dig3 == (numbs - dig2 * 100 - dig1 * 1000) / 10))
+			{
+				dig3 = (numbs - dig2 * 100 - dig1 * 1000) / 10;
+				digit3 = &ObtenerNumColaYPila(dig3);
+			}
+			else
+			{
+				//Extraer de la listadoble
+			}
+
+			if (!(dig4 == numbs - dig3 * 10 - dig2 * 100 - dig1 * 1000))
+			{
+				dig4 = numbs - dig3 * 10 - dig2 * 100 - dig1 * 1000;
+				digit4 = &ObtenerNumColaYPila(dig4);
+			}
+			else
+			{
+				//Extraer de la listadoble
+			}
+
+			nums = ((digit1)->valor).ToString() + ((digit2)->valor).ToString() + "." + ((digit3)->valor).ToString() + ((digit4)->valor).ToString();
 			lblPrecio->Text = nums;
+			rTBListaDobleEnlazada->Text += nums + "\n";
+
+
+			
 			MostrarPilaYCola();
+			if (contUsos > 4)
+			{
+				finish:
+				MessageBox::Show("Ha superado el número de precios a ingresar, por favor devuélva los números a la pila y la cola");
+			}
+		}
+		else
+		{
+			MessageBox::Show("Debe ingresar un número válido");
 		}
 	}
 	catch (...)
@@ -305,104 +443,107 @@ private: System::Void btnMostrarPrecios_Click(System::Object^ sender, System::Ev
 		MessageBox::Show("Debe ingresar un número válido");
 	}
 }
-
 private: NumMadera ObtenerNumColaYPila(int num) {
-	NumMadera digit1 = ObtenerNumPila(num);
-	if ((&digit1)->valor == -1)
+NumMadera digits = ObtenerNumPila(num);
+if ((&digits)->valor == -1)
+{
+	digits = ObtenerNumCola(num);
+	if ((&digits)->valor == -1)
 	{
-		digit1 = ObtenerNumCola(num);
-		if ((&digit1)->valor == -1)
+		if (num < 9)
 		{
-			if (num < 9)
-			{
-				ObtenerNumColaYPila(num + 1);
-			}
-			else
-			{
-				ObtenerNumColaYPila(0);
-			}
+			return ObtenerNumColaYPila(num + 1);
 		}
 		else
 		{
-			return digit1;
+			return ObtenerNumColaYPila(0);
 		}
 	}
 	else
 	{
-		return digit1;
+		return digits;
 	}
 }
-
+else
+{
+	return digits;
+}
+}
 private: NumMadera ObtenerNumCola(int num) {
-	NumMadera* numb = new NumMadera();
-	NumMadera* aux = new NumMadera();
-	int x = 0;
-	while (x != num && x != -1)
+NumMadera* numb = new NumMadera();
+int x = -1;
+while (x != num)
+{
+	if ((&(colaInicial)->ObtenerPrimero())->valor == num)
 	{
-		if ((&(colaInicial)->ObtenerPrimero())->valor == num)
+		numb = &colaInicial->Desencolar();
+		numb->siguienteNum = nullptr;
+		numb->anteriorNum = nullptr;
+		x = numb->valor;
+	}
+	else
+	{
+		if (!colaInicial->ColaVacia())
 		{
-			numb = &colaInicial->Desencolar();
-			x = numb->valor;
+			colaAuxiliar->Encolar((&colaInicial->Desencolar())->valor);
 		}
 		else
 		{
-			if (!colaInicial->ColaVacia())
+			while (!colaAuxiliar->ColaVacia())
 			{
-				colaAuxiliar->Encolar((&colaInicial->Desencolar())->valor);
+				colaInicial->Encolar((&colaAuxiliar->Desencolar())->valor);
 			}
-			else
-			{
-				while (colaAuxiliar->nElementos > 0)
-				{
-					colaInicial->Encolar((&colaAuxiliar->Desencolar())->valor);
-				}
-				return *new NumMadera();
-			}
+			return *new NumMadera();
 		}
 	}
-
-	while (colaAuxiliar->nElementos > 0)
-	{
-		colaInicial->Encolar((&colaAuxiliar->Desencolar())->valor);
-	}
-
-	return *numb;
-
 }
 
+while (!colaAuxiliar->ColaVacia())
+{
+	colaInicial->Encolar((&colaAuxiliar->Desencolar())->valor);
+}
+
+return *numb;
+
+}
 private: NumMadera ObtenerNumPila(int num) {
-	NumMadera *numb = new NumMadera();
-	int x = 0;
-	while (x != num && x != -1)
+NumMadera *numb = new NumMadera();
+int x = -1;
+while (x != num)
+{
+	if ((&pilaInicial->ObtenerCima())->valor == num)
 	{
-		if ((&pilaInicial->ObtenerCima())->valor == num)
+		numb = &pilaInicial->Desapilar();
+		x = numb->valor;
+		numb->siguienteNum = nullptr;
+		numb->anteriorNum = nullptr;
+	}
+	else
+	{
+		if (!pilaInicial->PilaVacia())
 		{
-			numb = &pilaInicial->Desapilar();
-			x = numb->valor;
+			pilaAuxiliar->Apilar((&pilaInicial->Desapilar())->valor);
 		}
 		else
 		{
-			if (!pilaInicial->PilaVacia())
+			while (!pilaAuxiliar->PilaVacia())
 			{
-				pilaAuxiliar->Apilar((&pilaInicial->Desapilar())->valor);
+				pilaInicial->Apilar((&pilaAuxiliar->Desapilar())->valor);
 			}
-			else
-			{
-				while (pilaAuxiliar->nElementos > 0)
-				{
-					pilaInicial->Apilar((&pilaAuxiliar->Desapilar())->valor);
-				}
-				return *new NumMadera();
-			}
+			return *new NumMadera();
 		}
 	}
+}
 
-	while (pilaAuxiliar->nElementos > 0)
-	{
-		pilaInicial->Apilar((&pilaAuxiliar->Desapilar())->valor);
-	}
+while (!pilaAuxiliar->PilaVacia())
+{
+	pilaInicial->Apilar((&pilaAuxiliar->Desapilar())->valor);
+}
 
-	return *numb;
+return *numb;
+}
+private: System::Void btnDevolverNums_Click(System::Object^ sender, System::EventArgs^ e) {
+
 }
 };
 }

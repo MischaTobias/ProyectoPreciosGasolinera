@@ -1,6 +1,7 @@
 #include "ListaDobleEnlazada.h"
 ListaDobleEnlazada::ListaDobleEnlazada() {
-
+	first = nullptr;
+	last = nullptr;
 }
 
 void ListaDobleEnlazada::Insertar(int valor) {
@@ -24,87 +25,29 @@ void ListaDobleEnlazada::Insertar(int valor) {
 	}
 }
 
-
-void ListaDobleEnlazada::InsertarAlFinal(int valor) {
-
-	NumMadera *newNum = new NumMadera;
-	newNum->valor = valor;
-	if (first == nullptr || last == nullptr)
+NumMadera ListaDobleEnlazada::ObtenerNum(int num) {
+	if (last == nullptr)
 	{
-		last = newNum;
-		first = newNum;
-		last->siguienteNum = first;
-		first->anteriorNum = last;
+		return *new NumMadera();//De estar vacía la cola, debemos devolver un NumMadera vacío.
 	}
 	else
 	{
-		last->siguienteNum = newNum;
-		newNum->anteriorNum = last;
-		last = newNum;
-		last->siguienteNum = first;
-		first->anteriorNum = last;
-	}
-}
-void ListaDobleEnlazada::EliminarUnNum(int pos)
-{
-	NumMadera *newNum = new NumMadera;
-	if (pos == 1)
-	{
-		if (first == nullptr)
-		{
-			//Console::WriteLine("La lista está vacía");
-		}
-	}
-	else
-	{
+		NumMadera* newNum = new NumMadera();
 		newNum = first;
-		for (int i = 1; i < pos; i++)
+		for (int i = 0; i < nElementos; i++)
 		{
-			newNum = newNum->siguienteNum;
-		}
-		(newNum->siguienteNum)->anteriorNum = newNum->anteriorNum;
-		(newNum->anteriorNum)->siguienteNum = newNum->siguienteNum;
-		delete newNum;
-	}
-
-}
-
-void ListaDobleEnlazada::InsertarEnPos(int valor, int pos)
-{
-	NumMadera *newNum = new NumMadera;
-	NumMadera *numAux = new NumMadera;
-	NumMadera *numAux2 = new NumMadera;
-
-	newNum->valor = valor;
-	if (pos == 1)
-	{
-		Insertar(valor);
-	}
-	else
-	{
-		numAux = first;
-		for (int i = 1; i < pos; i++)
-		{
-			numAux = numAux->siguienteNum;
-			numAux2 = numAux->anteriorNum;
+			if (newNum->valor == num)
+			{
+				(newNum->anteriorNum)->siguienteNum = newNum->siguienteNum;
+				(newNum->siguienteNum)->anteriorNum = newNum->anteriorNum;
+				return *newNum;
+			}
+			else
+			{
+				newNum = newNum->siguienteNum;
+			}
 		}
 
-		newNum->siguienteNum = numAux2->siguienteNum;
-		(numAux->anteriorNum)->siguienteNum = newNum;
-		newNum->anteriorNum = numAux->anteriorNum;
-		(newNum->siguienteNum)->anteriorNum = newNum;
+		return *newNum;
 	}
-}
-
-
-System::String^ ListaDobleEnlazada::MostrarNums() {
-	NumMadera *newNum = new NumMadera;
-	newNum = first;
-	System::String^ nums = "";
-	for (int i = 0; i < nElementos; i++)
-	{
-		nums += (newNum->valor).ToString();
-	}
-
-	return nums;
 }
