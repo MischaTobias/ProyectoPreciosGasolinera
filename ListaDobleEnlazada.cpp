@@ -5,6 +5,10 @@ ListaDobleEnlazada::ListaDobleEnlazada() {
 	nElementos = 0;
 }
 
+bool ListaDobleEnlazada::ListaVacia() {
+	return first == nullptr;
+}
+
 void ListaDobleEnlazada::Insertar(int valor) {
 
 	NumMadera *newNum = new NumMadera;
@@ -41,8 +45,19 @@ NumMadera ListaDobleEnlazada::ObtenerNum(int num) {
 		{
 			if (newNum->valor == num)
 			{
-				(newNum->anteriorNum)->siguienteNum = newNum->siguienteNum;
-				(newNum->siguienteNum)->anteriorNum = newNum->anteriorNum;
+				if (nElementos > 1)
+				{
+					(newNum->anteriorNum)->siguienteNum = newNum->siguienteNum;
+					(newNum->siguienteNum)->anteriorNum = newNum->anteriorNum;
+					first = first->siguienteNum;
+				}
+				else
+				{
+					first = nullptr;
+					last = nullptr;
+					nElementos--;
+					return *newNum;
+				}
 				nElementos--;
 				return *newNum;
 			}

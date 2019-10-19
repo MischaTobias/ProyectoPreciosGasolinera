@@ -8,6 +8,23 @@ Pila::~Pila() {
 
 }
 
+bool Pila::ExisteNum(int num) {
+	NumMadera* aux = new NumMadera();
+	aux = head;
+	for (int i = 0; i < nElementos; i++)
+	{
+		if (num == aux->valor)
+		{
+			return true;
+		}
+		else
+		{
+			aux = aux->siguienteNum;
+		}
+	}
+	return false;
+}
+
 bool Pila::PilaVacia(){
 	return head == nullptr;
 }

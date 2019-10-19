@@ -213,9 +213,9 @@ namespace ProyectoPreciosGasolineraMischaTobias1170919 {
 				static_cast<System::Byte>(0)));
 			this->label6->Location = System::Drawing::Point(475, 188);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(209, 13);
+			this->label6->Size = System::Drawing::Size(203, 13);
 			this->label6->TabIndex = 12;
-			this->label6->Text = L"> Puedes colocar 4 números como máximo";
+			this->label6->Text = L"> Puedes colocar 4 precios como máximo";
 			// 
 			// btnDevolverNums
 			// 
@@ -588,7 +588,28 @@ while (!pilaAuxiliar->PilaVacia())
 return *numb;
 }
 private: System::Void btnDevolverNums_Click(System::Object^ sender, System::EventArgs^ e) {
-
+	NumMadera* aux = new NumMadera();
+	aux = listaInicial->first;
+	while (!listaInicial->ListaVacia())
+	{
+		if (!pilaInicial->ExisteNum(aux->valor))
+		{
+			pilaInicial->Apilar((&listaInicial->ObtenerNum(aux->valor))->valor);
+			aux = aux->siguienteNum;
+		}
+		else
+		{
+			colaInicial->Encolar((&listaInicial->ObtenerNum(aux->valor))->valor);
+			aux = aux->siguienteNum;
+		}
+	}
+	contUsos = 0;
+	dig1 = -1;
+	dig2 = -1;
+	dig3 = -1;
+	dig4 = -1;
+	MostrarPilaYCola();
+	rTBListaDobleEnlazada->Text = "";
 }
 };
 }

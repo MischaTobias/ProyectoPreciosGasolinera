@@ -14,6 +14,23 @@ bool Cola::ColaVacia() {
 	return first == nullptr;
 }
 
+bool Cola::ExisteNum(int num) {
+	NumMadera* aux = new NumMadera;
+	aux = first;
+	for (int i = 0; i < nElementos; i++)
+	{
+		if (aux->valor == num)
+		{
+			return true;
+		}
+		else
+		{
+			aux = aux->siguienteNum;
+		}
+	}
+	return false;
+}
+
 void Cola::Encolar(int valor) {
 	NumMadera *numMaderaNuevo = new NumMadera();
 	numMaderaNuevo->valor = valor; //Meter el nuevo número dentro de un nodo NumMadera.

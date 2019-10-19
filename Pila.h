@@ -10,6 +10,7 @@ public:
 	NumMadera ObtenerCima(); //Obtener el número del head sin sacarlo de la pila.
 	void Ordenar();
 	bool PilaVacia();
+	bool ExisteNum(int num);
 public:
 	Pila();//Constructores
 	~Pila();

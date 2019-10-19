@@ -10,6 +10,7 @@ public:
 	NumMadera Desencolar(); //Sacar carta de la pila.
 	NumMadera ObtenerPrimero(); //Obtener carta en la cima sin sacarla.
 	bool ColaVacia();
+	bool ExisteNum(int num);
 public:
 	Cola();
 	~Cola();

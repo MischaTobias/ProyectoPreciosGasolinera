@@ -9,6 +9,7 @@ public:
 public:
 	ListaDobleEnlazada();
 	void Insertar(int valor);
+	bool ListaVacia();
 	NumMadera ObtenerNum(int num);
 };
 
