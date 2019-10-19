@@ -304,9 +304,12 @@ private: System::Void btnOrdenar_Click(System::Object^ sender, System::EventArgs
 	int numsOrden[10];
 	NumMadera *num = pilaInicial->head;
 	bool contNum = true;
-	for (int i = 0; i < pilaInicial->nElementos; i++)
+	int tam = pilaInicial->nElementos;
+	for (int i = 0; i < tam; i++)
 	{
-		if (contNum)
+		numsOrden[i] = (&pilaInicial->Desapilar())->valor;
+
+		/*if (contNum)
 		{
 			if (num->siguienteNum == nullptr)
 			{
@@ -321,16 +324,17 @@ private: System::Void btnOrdenar_Click(System::Object^ sender, System::EventArgs
 		else
 		{
 			numsOrden[i] = -1;
-		}
+		}*/
 	}
 
 	int pos = 0;
 	int numMen = numsOrden[0];
 	int x = numsOrden[0];
 
-	for (int j = 0; j < 10; j++)
+	for (int j = 0; j < tam; j++)
 	{
-		for (int i = j; i < 10; i++)
+		numMen = numsOrden[j];
+		for (int i = j; i < tam; i++)
 		{
 			if (numsOrden[i] < numMen)
 			{
@@ -338,30 +342,58 @@ private: System::Void btnOrdenar_Click(System::Object^ sender, System::EventArgs
 				numMen = numsOrden[i];
 			}
 		}
-		x = numsOrden[pos];
-		numsOrden[pos] = numsOrden[j];
-		numsOrden[j] = x;
+
+		if (numMen != numsOrden[j])
+		{
+			x = numsOrden[pos];
+			numsOrden[pos] = numsOrden[j];
+			numsOrden[j] = x;
+		}
 	}
 
-	if (Ordenado(numsOrden))
+	for (int i = 0; i < tam; i++)
 	{
-		MostrarPilaYCola();
+		pilaInicial->Apilar(numsOrden[i]);
 	}
-}
-private: System::Boolean Ordenado(int vect[]) {
-		for (int i = 0; i < 10; i++)
+
+	tam = colaInicial->nElementos;
+
+	for (int i = 0; i < tam; i++)
+	{
+		numsOrden[i] = (&colaInicial->Desencolar())->valor;
+	}
+
+	pos = 0;
+	numMen = numsOrden[0];
+	x = numsOrden[0];
+
+	for (int j = 0; j < tam; j++)
+	{
+		numMen = numsOrden[j];
+		for (int i = j; i < tam; i++)
 		{
-			if (i+1 < 10)
+			if (numsOrden[i] < numMen)
 			{
-				if (vect[i] > vect[i + 1])
-				{
-					return false;
-				}
+				pos = i;
+				numMen = numsOrden[i];
 			}
 		}
 
-		return true;
+		if (numMen != numsOrden[j])
+		{
+			x = numsOrden[pos];
+			numsOrden[pos] = numsOrden[j];
+			numsOrden[j] = x;
+		}
 	}
+
+	for (int i = 0; i < tam; i++)
+	{
+		colaInicial->Encolar(numsOrden[i]);
+	}
+	
+	MostrarPilaYCola();
+}
 private: System::Void btnMostrarPrecios_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::String^ nums = txtPrecioGas->Text;
 	try
