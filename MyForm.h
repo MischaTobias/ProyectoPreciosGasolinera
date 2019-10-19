@@ -387,7 +387,17 @@ private: System::Void btnMostrarPrecios_Click(System::Object^ sender, System::Ev
 			}
 			else
 			{
-				//Extraer de la listadoble
+				digit1 = &listaInicial->ObtenerNum(dig1);
+				if (digit1->valor == -1)
+				{
+					dig1++;
+					if (dig1 > 9)
+					{
+						dig1 = 0;
+					}
+					digit1 = &ObtenerNumColaYPila(dig1);
+					dig1 = digit1->valor;
+				}
 			}
 
 			if (!(dig2 == (numbs - dig1 * 1000) / 100))
@@ -397,7 +407,17 @@ private: System::Void btnMostrarPrecios_Click(System::Object^ sender, System::Ev
 			}
 			else
 			{
-				//Extraer de la listadoble
+				digit2 = &listaInicial->ObtenerNum(dig2);
+				if (digit2->valor == -1)
+				{
+					dig2++;
+					if (dig2 > 9)
+					{
+						dig2 = 0;
+					}
+					digit2 = &ObtenerNumColaYPila(dig2);
+					dig2 = digit2->valor;
+				}
 			}
 
 			if (!(dig3 == (numbs - dig2 * 100 - dig1 * 1000) / 10))
@@ -407,7 +427,17 @@ private: System::Void btnMostrarPrecios_Click(System::Object^ sender, System::Ev
 			}
 			else
 			{
-				//Extraer de la listadoble
+				digit3 = &listaInicial->ObtenerNum(dig3);
+				if (digit3->valor == -1)
+				{
+					dig3++;
+					if (dig3 > 9)
+					{
+						dig3 = 0;
+					}
+					digit3 = &ObtenerNumColaYPila(dig3);
+					dig3 = digit3->valor;
+				}
 			}
 
 			if (!(dig4 == numbs - dig3 * 10 - dig2 * 100 - dig1 * 1000))
@@ -417,8 +447,23 @@ private: System::Void btnMostrarPrecios_Click(System::Object^ sender, System::Ev
 			}
 			else
 			{
-				//Extraer de la listadoble
+				digit4 = &listaInicial->ObtenerNum(dig4);
+				if (digit4->valor == -1)
+				{
+					dig4++;
+					if (dig4 > 9)
+					{
+						dig4 = 0;
+					}
+					digit4 = &ObtenerNumColaYPila(dig4);
+					dig4 = digit4->valor;
+				}
 			}
+
+			listaInicial->Insertar(digit1->valor);
+			listaInicial->Insertar(digit2->valor);
+			listaInicial->Insertar(digit3->valor);
+			listaInicial->Insertar(digit4->valor);
 
 			nums = ((digit1)->valor).ToString() + ((digit2)->valor).ToString() + "." + ((digit3)->valor).ToString() + ((digit4)->valor).ToString();
 			lblPrecio->Text = nums;
