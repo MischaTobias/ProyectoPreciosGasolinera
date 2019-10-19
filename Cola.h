@@ -9,9 +9,10 @@ public:
 	void Encolar(int valor); //Recibe un NumMadera para ingresar a la cola.
 	NumMadera Desencolar(); //Sacar carta de la pila.
 	NumMadera ObtenerPrimero(); //Obtener carta en la cima sin sacarla.
-	bool ColaVacia();
-	bool ExisteNum(int num);
+	bool ColaVacia(); // Función que devuelve un valor de verdad dependiendo de si la cola está vacía o no.
+	bool ExisteNum(int num); //Función que devuelve un valor de verdad dependiendo de si el número recibido existe en la cola o no.
 public:
+	//Constructores
 	Cola();
 	~Cola();
 };

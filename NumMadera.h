@@ -2,8 +2,9 @@
 class NumMadera
 {
 public:
+	//Declaración de atributos y constructor.
 	int valor;
-	NumMadera* siguienteNum;  //Inicializa el puntero como nulo
+	NumMadera* siguienteNum;  
 	NumMadera* anteriorNum;
     NumMadera();
 };
