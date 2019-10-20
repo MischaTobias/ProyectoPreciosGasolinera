@@ -1,3 +1,8 @@
-﻿  MyForm.cpp
+﻿  Cola.cpp
+  ListaDobleEnlazada.cpp
+  MyForm.cpp
+  NumMadera.cpp
+  Pila.cpp
+  Generando código...
   Cola.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
   ProyectoPreciosGasolinera_Mischa_Tobias_1170919.vcxproj -> C:\Users\misch\source\repos\ProyectoPreciosGasolinera_Mischa_Tobias_1170919\Debug\ProyectoPreciosGasolinera_Mischa_Tobias_1170919.exe
